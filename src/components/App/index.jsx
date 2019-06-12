@@ -8,11 +8,11 @@ export default class extends React.Component {
 
     this.state = {
       f7Params: {
-        name: 'calendar',
+        name: '校历',
         theme: 'ios',
         routes: routes,
       }
-    }
+    };
   }
 
   render() {
@@ -21,12 +21,5 @@ export default class extends React.Component {
         <View main className="safe-areas" url="/" />
       </App>
     );
-  }
-
-  componentDidMount() {
-    this.$f7ready((f7) => {
-
-      // Call F7 APIs here
-    });
   }
 }
