@@ -1,0 +1,62 @@
+{
+  "name": "calendar",
+  "private": true,
+  "version": "1.0.0",
+  "description": "掌上理工大校历模块",
+  "repository": "https://git.itoken.team/crazyurus/calendar.git",
+  "author": {
+    "name": "廖星",
+    "email": "xing.liao@itoken.team"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.js",
+    "build": "cross-env NODE_ENV=production node ./build/build.js"
+  },
+  "browserslist": [
+    "Android >= 5",
+    "IOS >= 9.3",
+    "Edge >= 15",
+    "Safari >= 9.1",
+    "Chrome >= 49",
+    "Firefox >= 31",
+    "Samsung >= 5"
+  ],
+  "dependencies": {
+    "dom7": "^2.1.3",
+    "framework7": "^4.4.3",
+    "framework7-react": "^4.4.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "template7": "^1.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "chalk": "^2.4.2",
+    "copy-webpack-plugin": "^5.0.3",
+    "cross-env": "^5.2.0",
+    "css-loader": "^3.0.0",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "ora": "^3.4.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.6.0",
+    "rimraf": "^2.6.3",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.3.0",
+    "url-loader": "^2.0.0",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.1"
+  }
+}
