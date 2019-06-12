@@ -6,9 +6,9 @@ import Framework7React from 'framework7-react';
 
 import 'framework7/css/framework7.bundle.css';
 
-import '../css/app.less';
+import '../css/global.less';
 
-import App from '../components/app.jsx';
+import App from '../components/App';
 
 Framework7.use(Framework7React);
 

@@ -15,8 +15,6 @@ function resolvePath(dir) {
 const env = process.env.NODE_ENV || 'development';
 const target = process.env.TARGET || 'web';
 
-
-
 module.exports = {
   mode: env,
   entry: [
@@ -66,8 +64,6 @@ module.exports = {
           resolvePath('node_modules/ssr-window'),
         ],
       },
-
-
       {
         test: /\.css$/,
         use: [
@@ -104,7 +100,7 @@ module.exports = {
               publicPath: '../'
             }
           }),
-          'css-loader',
+          'css-loader?modules',
           'postcss-loader',
           'less-loader',
         ],
