@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-
 const path = require('path');
+const folderName = 'calendar';
 
 function resolvePath(dir) {
   return path.join(__dirname, '..', dir);
@@ -24,7 +24,7 @@ module.exports = {
   ],
   output: {
     path: resolvePath('dist'),
-    filename: 'calendar/js/calendar.js',
+    filename: folderName + '/js/calendar.js',
     publicPath: '',
     hotUpdateChunkFilename: 'hot/hot-update.js',
     hotUpdateMainFilename: 'hot/hot-update.json',
@@ -128,7 +128,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'calendar/images/[name].[ext]',
+          name: folderName + '/images/[name].[ext]',
 
         },
       },
@@ -137,7 +137,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'calendar/media/[name].[ext]',
+          name: folderName + '/media/[name].[ext]',
 
         },
       },
@@ -146,7 +146,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'calendar/fonts/[name].[ext]',
+          name: folderName + '/fonts/[name].[ext]',
 
         },
       },
@@ -172,7 +172,7 @@ module.exports = {
       new webpack.NamedModulesPlugin(),
     ]),
     new HtmlWebpackPlugin({
-      filename: './calendar.php',
+      filename: env === 'production' ? './calendar.php' : './index.html',
       template: './src/index.html',
       inject: true,
       minify: env === 'production' ? {
@@ -185,7 +185,7 @@ module.exports = {
       } : false,
     }),
     new MiniCssExtractPlugin({
-      filename: 'calendar/css/calendar.css',
+      filename: folderName + '/css/calendar.css',
     }),
   ],
 };
