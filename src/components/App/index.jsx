@@ -20,7 +20,7 @@ export default class extends React.Component {
       <App params={this.state.f7Params} >
         <View main className="safe-areas" url="/" />
       </App>
-    )
+    );
   }
 
   componentDidMount() {
