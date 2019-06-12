@@ -100,7 +100,12 @@ module.exports = {
               publicPath: '../'
             }
           }),
-          'css-loader?modules',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          },
           'postcss-loader',
           'less-loader',
         ],

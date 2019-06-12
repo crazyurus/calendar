@@ -1,0 +1,45 @@
+.item {
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  height: 44px;
+  align-items: center;
+  transition: background 0.3s;
+  background-size: 8px 13px;
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D'8px'%20height%3D'13px'%20viewBox%3D'0%200%208%2013'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpolygon%20fill%3D'%23c7c7cc'%20transform%3D'translate(1.500000%2C%206.500000)%20rotate(-45.000000)%20translate(-1.500000%2C%20-6.500000)%20'%20points%3D'6%2011%206%202%204%202%204%209%20-3%209%20-3%2011%205%2011'%3E%3C%2Fpolygon%3E%3C%2Fsvg%3E");
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    transform: scaleY(0.5);
+  }
+
+  &:active, &:focus {
+    transition-duration: 0ms;
+    background-color: #d9d9d9;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+  }
+
+  .title {
+    flex-grow: 1;
+    margin-left: 20px;
+    color: #787878;
+    font-size: 16px;
+  }
+}
