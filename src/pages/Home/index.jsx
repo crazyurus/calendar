@@ -12,19 +12,20 @@ const url = location.host + '/act/calendar/images/calendar.jpg';
 
 @autobind
 class HomePage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showIframe: navigator.onLine,
-    };
-  }
 
   componentDidMount() {
     if (detect.isWeChat()) {
       wx.config({
         debug: false
       });
+    }
+
+    if (!navigator.onLine) {
+      this.$f7.toast.create({
+        text: '当前处于离线状态，无法加载校歌',
+        closeButton: true,
+        closeButtonText: '知道了'
+      }).open();
     }
   }
 
@@ -39,6 +40,14 @@ class HomePage extends Component {
       tokenNative.previewImages({
         images: [url]
       });
+    }
+    else {
+      this.$f7.photoBrowser.create({
+        photos: [url],
+        navbar: false,
+        toolbar: false,
+        theme: 'dark'
+      }).open();
     }
   }
 
@@ -79,8 +88,6 @@ class HomePage extends Component {
   }
 
   render() {
-    const { showIframe } = this.state;
-
     return (
       <Page name="home">
         <Block title="校历">
@@ -120,14 +127,14 @@ class HomePage extends Component {
           title="校歌"
           extra={<a href="//m.music.163.com/m/applink/?scheme=orpheus%3A%2F%2Fsong%2F449577766%3Fthirdfrom%3Diwut" className="external">打开网易云音乐</a>}
         >
-          {showIframe ? <iframe
+          {navigator.onLine ? <iframe
             className={styles.iframe}
             frameBorder="no"
             border="0"
             marginWidth="0"
             marginHeight="0"
             src="//music.163.com/outchain/player?type=2&amp;id=449577766&amp;auto=0&amp;height=66"
-          >暂不支持</iframe> : <p>离线状态下无法显示校歌</p>}
+          >暂不支持</iframe> : <p>离线状态下无法加载校歌</p>}
         </Block>
       </Page>
     )
