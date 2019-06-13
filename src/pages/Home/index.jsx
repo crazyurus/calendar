@@ -5,7 +5,7 @@ import Block from '@/components/Block';
 import List from '@/components/List';
 import ListItem from '@/components/List/item';
 import detect from '@/utils/detect';
-import imgCalendar from '@/assets/images/calendar.jpg';
+import imgCalendar from '@/assets/images/calendar.min.jpg';
 import styles from './index.less';
 
 const url = location.protocol + '//' + location.host + '/act/calendar/images/calendar.jpg';

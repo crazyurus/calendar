@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SriPlugin = require('webpack-subresource-integrity');
 const OfflinePlugin = require('offline-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
@@ -198,5 +199,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: folderName + '/css/calendar.css',
     }),
+    new CopyPlugin([
+      {
+        from: resolvePath('src/assets/images/calendar.jpg'),
+        to: resolvePath('dist/calendar/images/calendar.jpg')
+      }
+    ])
   ],
 };
