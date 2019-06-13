@@ -155,7 +155,6 @@ module.exports = {
         options: {
           limit: 10000,
           name: folderName + '/fonts/[name].[ext]',
-
         },
       },
     ],
@@ -166,7 +165,16 @@ module.exports = {
       'process.env.TARGET': JSON.stringify(target),
     }),
     ...(env === 'production' ? [
-      new OfflinePlugin(),
+      new OfflinePlugin({
+        autoUpdate: true,
+        responseStrategy: 'network-first',
+        ServiceWorker: {
+          output: folderName + '/js/sw.js'
+        },
+        AppCache: {
+          directory: folderName + '/appcache/'
+        }
+      }),
       new OptimizeCSSPlugin({
         cssProcessorOptions: {
           safe: true,
