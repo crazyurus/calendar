@@ -157,13 +157,12 @@ module.exports = {
     ],
   },
   plugins: [
-    new OfflinePlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
       'process.env.TARGET': JSON.stringify(target),
     }),
-
     ...(env === 'production' ? [
+      new OfflinePlugin(),
       new OptimizeCSSPlugin({
         cssProcessorOptions: {
           safe: true,

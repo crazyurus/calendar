@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { autobind } from 'core-decorators';
-import { Page, Button } from 'framework7-react';
+import { Page, Button, Preloader } from 'framework7-react';
 import Block from '@/components/Block';
 import List from '@/components/List';
 import ListItem from '@/components/List/item';
 import detect from '@/utils/detect';
+import imgCalendar from '@/assets/images/calendar.jpg';
 import styles from './index.less';
 
 const url = location.host + '/act/calendar/images/calendar.jpg';
@@ -83,7 +84,10 @@ class HomePage extends Component {
     return (
       <Page name="home">
         <Block title="校历">
-          <div className={styles.calendar} onClick={this.preview} />
+          <div className={styles.calendar}>
+            <Preloader size={30} />
+            <img src={imgCalendar} onClick={this.preview} alt="校历" />
+          </div>
           <Button fill onClick={this.download}>保存到手机</Button>
         </Block>
 

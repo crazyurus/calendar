@@ -13,7 +13,7 @@ import App from '../components/App';
 
 Framework7.use(Framework7React);
 
-OfflinePluginRuntime.install();
+if (process.env.NODE_ENV === 'production') OfflinePluginRuntime.install();
 
 ReactDOM.render(
   React.createElement(App),
