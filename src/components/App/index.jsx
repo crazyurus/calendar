@@ -11,6 +11,9 @@ export default class extends React.Component {
         name: '校历',
         theme: 'ios',
         routes: routes,
+        dialog: {
+          buttonOk: '好'
+        }
       }
     };
   }

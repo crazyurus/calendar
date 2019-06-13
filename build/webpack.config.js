@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SriPlugin = require('webpack-subresource-integrity');
+const OfflinePlugin = require('offline-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
@@ -156,6 +157,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new OfflinePlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
       'process.env.TARGET': JSON.stringify(target),

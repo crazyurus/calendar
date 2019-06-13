@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { autobind } from 'core-decorators';
 import { Page, Button } from 'framework7-react';
 import Block from '@/components/Block';
 import List from '@/components/List';
@@ -8,10 +9,17 @@ import styles from './index.less';
 
 const url = location.host + '/act/calendar/images/calendar.jpg';
 
+@autobind
 class HomePage extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      showIframe: navigator.onLine,
+    };
+  }
+
+  componentDidMount() {
     if (detect.isWeChat()) {
       wx.config({
         debug: false
@@ -66,10 +74,12 @@ class HomePage extends Component {
       evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
       $a.dispatchEvent(evObj);
     }
-    else alert('长按上方图片保存到手机');
+    else this.$f7.dialog.alert('长按上方图片保存到手机');
   }
 
   render() {
+    const { showIframe } = this.state;
+
     return (
       <Page name="home">
         <Block title="校历">
@@ -106,13 +116,14 @@ class HomePage extends Component {
           title="校歌"
           extra={<a href="//m.music.163.com/m/applink/?scheme=orpheus%3A%2F%2Fsong%2F449577766%3Fthirdfrom%3Diwut" className="external">打开网易云音乐</a>}
         >
-          <iframe
+          {showIframe ? <iframe
             className={styles.iframe}
             frameBorder="no"
             border="0"
             marginWidth="0"
             marginHeight="0"
-            src="//music.163.com/outchain/player?type=2&amp;id=449577766&amp;auto=0&amp;height=66">暂不支持</iframe>
+            src="//music.163.com/outchain/player?type=2&amp;id=449577766&amp;auto=0&amp;height=66"
+          >暂不支持</iframe> : <p>离线状态下无法显示校歌</p>}
         </Block>
       </Page>
     )

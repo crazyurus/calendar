@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
+    "core-decorators": "^0.20.0",
     "framework7": "^4.4.3",
     "framework7-react": "^4.4.3",
     "prop-types": "^15.7.2",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
@@ -48,6 +50,7 @@
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.7.0",
+    "offline-plugin": "^5.0.7",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "ora": "^3.4.0",
     "postcss-loader": "^3.0.0",
