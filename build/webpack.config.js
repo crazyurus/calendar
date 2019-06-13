@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SriPlugin = require('webpack-subresource-integrity');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
@@ -26,6 +27,7 @@ module.exports = {
     publicPath: '',
     hotUpdateChunkFilename: 'hot/hot-update.js',
     hotUpdateMainFilename: 'hot/hot-update.json',
+    crossOriginLoading: 'anonymous'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
@@ -172,6 +174,10 @@ module.exports = {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NamedModulesPlugin(),
     ]),
+    new SriPlugin({
+      hashFuncNames: ['sha256', 'sha512'],
+      enabled: env === 'production',
+    }),
     new HtmlWebpackPlugin({
       filename: env === 'production' ? './calendar.php' : './index.html',
       template: './src/index.html',
