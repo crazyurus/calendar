@@ -9,7 +9,7 @@ export default class extends React.Component {
     this.state = {
       f7Params: {
         name: '校历',
-        theme: 'ios',
+        theme: 'auto',
         routes: routes,
         dialog: {
           buttonOk: '好'

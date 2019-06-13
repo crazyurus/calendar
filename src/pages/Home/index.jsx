@@ -24,7 +24,7 @@ class HomePage extends Component {
       this.$f7.toast.create({
         text: '当前处于离线状态，无法加载校歌',
         closeButton: true,
-        closeButtonText: '知道了'
+        closeButtonText: '好的'
       }).open();
     }
   }
@@ -84,7 +84,7 @@ class HomePage extends Component {
       evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
       $a.dispatchEvent(evObj);
     }
-    else this.$f7.dialog.alert('长按上方图片保存到手机');
+    else this.$f7.dialog.alert('请长按上方图片保存到手机');
   }
 
   render() {
