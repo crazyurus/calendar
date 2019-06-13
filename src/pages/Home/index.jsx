@@ -8,7 +8,7 @@ import detect from '@/utils/detect';
 import imgCalendar from '@/assets/images/calendar.jpg';
 import styles from './index.less';
 
-const url = location.host + '/act/calendar/images/calendar.jpg';
+const url = location.protocol + '//' + location.host + '/act/calendar/images/calendar.jpg';
 
 @autobind
 class HomePage extends Component {
