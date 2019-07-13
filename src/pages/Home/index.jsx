@@ -101,9 +101,9 @@ class HomePage extends Component {
         <Block title="时间表">
           <List>
             <ListItem
-              title="图书馆"
+              title="图书馆（暑期）"
               icon="book"
-              url="https://mp.weixin.qq.com/s/DNagKucWjdh7guYfNZdqxg"
+              url="https://mp.weixin.qq.com/s/_tR5VnVRYJcIFIr0-EZFdw"
             />
             <ListItem
               title="食堂"
