@@ -87,6 +87,10 @@ class HomePage extends Component {
     else this.$f7.dialog.alert('请长按上方图片保存到手机');
   }
 
+  onListItemClick(url) {
+    this.$f7router.navigate('/webview', { props: { url } });
+  }
+
   render() {
     return (
       <Page name="home">
@@ -104,21 +108,25 @@ class HomePage extends Component {
               title="图书馆（暑期）"
               icon="book"
               url="https://mp.weixin.qq.com/s/_tR5VnVRYJcIFIr0-EZFdw"
+              onClick={this.onListItemClick}
             />
             <ListItem
               title="食堂"
               icon="tea"
               url="https://mp.weixin.qq.com/s?__biz=MjM5MjEwNDIwMA==&mid=502148076&idx=1&sn=c0bbbf8e0af8efb40b3b3fa33cedbabb&chksm=3eb1e18b09c6689dfb87be6de903010170d7126fd499aaf8554377ea1596d6d12df4d3a3d04d#rd"
+              onClick={this.onListItemClick}
             />
             <ListItem
               title="校车"
               icon="hospital"
               url="https://mp.weixin.qq.com/s/8LjI4dJVtnxzdSLvitvgjg"
+              onClick={this.onListItemClick}
             />
             <ListItem
               title="快递/超市/卡务中心/医院"
               icon="card"
               url="https://mp.weixin.qq.com/s?__biz=MjM5MjEwNDIwMA==&mid=502148076&idx=1&sn=c0bbbf8e0af8efb40b3b3fa33cedbabb&chksm=3eb1e18b09c6689dfb87be6de903010170d7126fd499aaf8554377ea1596d6d12df4d3a3d04d#rd"
+              onClick={this.onListItemClick}
             />
           </List>
         </Block>
