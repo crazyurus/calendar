@@ -168,9 +168,7 @@ module.exports = {
       new OfflinePlugin({
         autoUpdate: true,
         responseStrategy: 'network-first',
-        ServiceWorker: {
-          output: folderName + '/js/sw.js'
-        },
+        ServiceWorker: false,
         AppCache: {
           directory: folderName + '/appcache/'
         }
