@@ -8,7 +8,7 @@ import detect from '@/utils/detect';
 import imgCalendar from '@/assets/images/calendar.min.jpg';
 import styles from './index.less';
 
-const url = location.protocol + '//' + location.host + '/act/calendar/images/calendar.jpg';
+const url = location.protocol + '//' + location.host + '/act/calendar/images/calendar-' + process.env.TERM + '.jpg';
 
 @autobind
 class HomePage extends Component {
@@ -88,7 +88,8 @@ class HomePage extends Component {
   }
 
   onListItemClick(url) {
-    this.$f7router.navigate('/webview', { props: { url } });
+    if (window.token && token.loadUrl) token.loadUrl(url);
+    else window.location.assign(url);
   }
 
   render() {

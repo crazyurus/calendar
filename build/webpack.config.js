@@ -17,6 +17,7 @@ function resolvePath(dir) {
 
 const env = process.env.NODE_ENV || 'development';
 const target = process.env.TARGET || 'web';
+const term = process.env.TERM;
 
 module.exports = {
   mode: env,
@@ -163,6 +164,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
       'process.env.TARGET': JSON.stringify(target),
+      'process.env.TERM': term
     }),
     ...(env === 'production' ? [
       new OfflinePlugin({
@@ -208,7 +210,7 @@ module.exports = {
     new CopyPlugin([
       {
         from: resolvePath('src/assets/images/calendar.jpg'),
-        to: resolvePath('dist/calendar/images/calendar.jpg')
+        to: resolvePath('dist/calendar/images/calendar-' + term + '.jpg')
       }
     ])
   ],
