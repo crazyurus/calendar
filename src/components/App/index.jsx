@@ -1,6 +1,6 @@
 import React from 'react';
 import { App, View } from 'framework7-react';
-import routes from '../../js/routes';
+import routes from '../../routes';
 
 export default class extends React.Component {
   constructor(props) {

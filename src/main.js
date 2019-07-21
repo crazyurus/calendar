@@ -7,9 +7,9 @@ import Framework7React from 'framework7-react';
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 
 import 'framework7/css/framework7.bundle.css';
-import '../css/global.less';
+import './css/global.less';
 
-import App from '../components/App';
+import App from './components/App';
 
 Framework7.use(Framework7React);
 

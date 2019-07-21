@@ -22,7 +22,7 @@ const term = process.env.TERM;
 module.exports = {
   mode: env,
   entry: [
-    './src/js/app.js',
+    './src/main.js',
   ],
   output: {
     path: resolvePath('dist'),
@@ -164,7 +164,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
       'process.env.TARGET': JSON.stringify(target),
-      'process.env.TERM': term
+      'process.env.TERM': '"' + term + '"'
     }),
     ...(env === 'production' ? [
       new OfflinePlugin({
