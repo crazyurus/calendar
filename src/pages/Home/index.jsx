@@ -142,7 +142,7 @@ class HomePage extends Component {
             border="0"
             marginWidth="0"
             marginHeight="0"
-            src="//music.163.com/outchain/player?type=2&amp;id=449577766&amp;auto=0&amp;height=66"
+            src="//music.163.com/outchain/player?type=2&id=449577766&auto=0&height=66"
           >暂不支持</iframe> : <p>离线状态下无法加载校歌</p>}
         </Block>
       </Page>
