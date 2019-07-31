@@ -189,7 +189,7 @@ module.exports = {
     ]),
     new SriPlugin({
       hashFuncNames: ['sha256', 'sha512'],
-      enabled: env === 'production',
+      enabled: false,
     }),
     new HtmlWebpackPlugin({
       filename: env === 'production' ? './calendar.php' : './index.html',
