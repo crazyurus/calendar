@@ -52,6 +52,8 @@ class HomePage extends Component {
   }
 
   download() {
+    const fileName = '校历' + process.env.TERM + '.jpg';
+
     if (detect.isiWUTiPhone()) {
       tokenNative.alertTitles({
         title: '提示',
@@ -73,12 +75,12 @@ class HomePage extends Component {
       });
     }
     else if (detect.isNewiWUTAndroid()) {
-      token.shareImageFromUrl('校历.jpg', url);
+      token.shareImageFromUrl(fileName, url);
     }
     else if (detect.isiWUTAndroid()) {
       const $a = document.createElement('a');
       $a.setAttribute('href', 'newtab:' + url);
-      $a.setAttribute('download', '校历.jpg');
+      $a.setAttribute('download', fileName);
 
       const evObj = document.createEvent('MouseEvents');
       evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
@@ -104,37 +106,37 @@ class HomePage extends Component {
 
         <Block 
           title="理工指北"
-          extra={<a href="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages/index/index&xcxSourceType=0" className="external">打开小程序</a>}
+          extra={<a href="mqqapi://microapp/open?mini_appid=1109701341&scene=1211" className="external">打开小程序</a>}
         >
           <List>
             <ListItem
               title="图书馆"
               icon="book"
-              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Findex&xcxSourceType=0"
+              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Findex"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="校车"
               icon="card"
-              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Findex&xcxSourceType=0"
+              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Findex"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="食堂"
               icon="tea"
-              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Fdlist%3Fid%3D7&xcxSourceType=0"
+              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Fdlist%3Fid%3D7"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="校医院"
               icon="hospital"
-              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Fdetail%3Fid%3D37&xcxSourceType=0"
+              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Fdetail%3Fid%3D37"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="卡务中心"
               icon="card"
-              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Fdetail%3Fid%3D6&xcxSourceType=0"
+              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Fdetail%3Fid%3D6"
               onClick={this.onListItemClick}
             />
           </List>
@@ -142,7 +144,7 @@ class HomePage extends Component {
 
         <Block
           title="校歌"
-          extra={<a href="orpheus://song/449577766?thirdfrom=iwut" className="external">打开网易云音乐</a>}
+          extra={<a href="//m.music.163.com/m/applink/?scheme=orpheus%3A%2F%2Fsong%2F449577766%3Fthirdfrom%3Diwut" className="external">打开网易云音乐</a>}
         >
           {navigator.onLine ? <iframe
             className={styles.iframe}
