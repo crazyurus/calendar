@@ -88,8 +88,7 @@ class HomePage extends Component {
   }
 
   onListItemClick(url) {
-    if (window.token && token.loadUrl) token.loadUrl(url);
-    else window.location.assign(url);
+    window.location.assign(url);
   }
 
   render() {
@@ -103,30 +102,39 @@ class HomePage extends Component {
           <Button fill onClick={this.download}>保存到手机</Button>
         </Block>
 
-        <Block title="时间表">
+        <Block 
+          title="理工指北"
+          extra={<a href="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages/index/index&xcxSourceType=0" className="external">打开小程序</a>}
+        >
           <List>
             <ListItem
-              title="图书馆（暑期）"
+              title="图书馆"
               icon="book"
-              url="https://mp.weixin.qq.com/s/_tR5VnVRYJcIFIr0-EZFdw"
+              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Findex&xcxSourceType=0"
+              onClick={this.onListItemClick}
+            />
+            <ListItem
+              title="校车"
+              icon="card"
+              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Findex&xcxSourceType=0"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="食堂"
               icon="tea"
-              url="https://mp.weixin.qq.com/s?__biz=MjM5MjEwNDIwMA==&mid=502148076&idx=1&sn=c0bbbf8e0af8efb40b3b3fa33cedbabb&chksm=3eb1e18b09c6689dfb87be6de903010170d7126fd499aaf8554377ea1596d6d12df4d3a3d04d#rd"
+              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Fdlist%3Fid%3D7&xcxSourceType=0"
               onClick={this.onListItemClick}
             />
             <ListItem
-              title="校车"
+              title="校医院"
               icon="hospital"
-              url="https://mp.weixin.qq.com/s/8LjI4dJVtnxzdSLvitvgjg"
+              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Fdetail%3Fid%3D37&xcxSourceType=0"
               onClick={this.onListItemClick}
             />
             <ListItem
-              title="快递/超市/卡务中心/医院"
+              title="卡务中心"
               icon="card"
-              url="https://mp.weixin.qq.com/s?__biz=MjM5MjEwNDIwMA==&mid=502148076&idx=1&sn=c0bbbf8e0af8efb40b3b3fa33cedbabb&chksm=3eb1e18b09c6689dfb87be6de903010170d7126fd499aaf8554377ea1596d6d12df4d3a3d04d#rd"
+              url="mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85b0f3f042&xcxPath=pages%2Findex%2Fdetail%3Fid%3D6&xcxSourceType=0"
               onClick={this.onListItemClick}
             />
           </List>
@@ -134,7 +142,7 @@ class HomePage extends Component {
 
         <Block
           title="校歌"
-          extra={<a href="//m.music.163.com/m/applink/?scheme=orpheus%3A%2F%2Fsong%2F449577766%3Fthirdfrom%3Diwut" className="external">打开网易云音乐</a>}
+          extra={<a href="orpheus://song/449577766?thirdfrom=iwut" className="external">打开网易云音乐</a>}
         >
           {navigator.onLine ? <iframe
             className={styles.iframe}
