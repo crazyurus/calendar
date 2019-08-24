@@ -90,7 +90,7 @@ class HomePage extends Component {
   }
 
   onListItemClick(url) {
-    window.location.assign(url);
+    window.location.assign(`mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85&xcxPath=${url}&xcxSourceType=0`);
   }
 
   render() {
@@ -106,37 +106,37 @@ class HomePage extends Component {
 
         <Block 
           title="理工指北"
-          extra={<a href="mqqapi://microapp/open?mini_appid=1109701341&scene=1211" className="external">打开小程序</a>}
+          extra={<a href="https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85" className="external">打开小程序</a>}
         >
           <List>
             <ListItem
               title="图书馆"
               icon="book"
-              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Findex"
+              url="pages/index/index.html"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="校车"
               icon="card"
-              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Findex"
+              url="pages/index/index.html"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="食堂"
               icon="tea"
-              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Fdlist%3Fid%3D7"
+              url="pages/index/list.html?id=7"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="校医院"
               icon="hospital"
-              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Fdetail%3Fid%3D37"
+              url="pages/index/detail.html?id=37"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="卡务中心"
               icon="card"
-              url="mqqapi://microapp/open?mini_appid=1109701341&scene=1211&entry_path=pages%2Findex%2Fdetail%3Fid%3D6"
+              url="pages/index/detail.html?id=6"
               onClick={this.onListItemClick}
             />
           </List>
