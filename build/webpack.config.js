@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SriPlugin = require('webpack-subresource-integrity');
-const OfflinePlugin = require('offline-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -9,7 +8,7 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const path = require('path');
-const folderName = 'calendar';
+const folderName = 'assets';
 
 function resolvePath(dir) {
   return path.join(__dirname, '..', dir);
@@ -167,14 +166,6 @@ module.exports = {
       'process.env.TERM': '"' + term + '"'
     }),
     ...(env === 'production' ? [
-      new OfflinePlugin({
-        autoUpdate: true,
-        responseStrategy: 'network-first',
-        ServiceWorker: false,
-        AppCache: {
-          directory: folderName + '/appcache/'
-        }
-      }),
       new OptimizeCSSPlugin({
         cssProcessorOptions: {
           safe: true,
@@ -192,7 +183,7 @@ module.exports = {
       enabled: false,
     }),
     new HtmlWebpackPlugin({
-      filename: env === 'production' ? './calendar.php' : './index.html',
+      filename: './index.html',
       template: './src/index.html',
       inject: true,
       minify: env === 'production' ? {
@@ -210,7 +201,7 @@ module.exports = {
     new CopyPlugin([
       {
         from: resolvePath('src/assets/images/calendar.jpg'),
-        to: resolvePath('dist/calendar/images/calendar-' + term + '.jpg')
+        to: resolvePath('dist/' + folderName + '/images/calendar-' + term + '.jpg')
       }
     ])
   ],
