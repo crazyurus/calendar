@@ -90,7 +90,7 @@ class HomePage extends Component {
   }
 
   onListItemClick(url) {
-    window.location.assign(`mqqapi://microapp/open?mini_appid=1109701341&fakeUrl=https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85&xcxPath=${url}&xcxSourceType=0`);
+    window.location.assign('mqqapi://microapp/open?url=' + encodeURIComponent(url) + '&src_type=web');
   }
 
   render() {
@@ -104,39 +104,39 @@ class HomePage extends Component {
           <Button fill onClick={this.download}>保存到手机</Button>
         </Block>
 
-        <Block 
+        <Block
           title="理工指北"
-          extra={<a href="https://m.q.qq.com/a/s/1af6003e65ad67d72245fa85" className="external">打开小程序</a>}
+          extra={<a href="https://m.q.qq.com/a/s/4cb1870c36fd6f9e751cfd976c00b84e" className="external">打开小程序</a>}
         >
           <List>
             <ListItem
               title="图书馆"
               icon="book"
-              url="pages/index/index.html"
+              url="https://m.q.qq.com/a/s/4cb1870c36fd6f9e751cfd976c00b84e"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="校车"
               icon="card"
-              url="pages/index/index.html"
+              url="https://m.q.qq.com/a/s/4cb1870c36fd6f9e751cfd976c00b84e"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="食堂"
               icon="tea"
-              url="pages/index/list.html?id=7"
+              url="https://m.q.qq.com/a/s/e2df34d359a407be9f105fa07c5daccb"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="校医院"
               icon="hospital"
-              url="pages/index/detail.html?id=37"
+              url="https://m.q.qq.com/a/s/2eda97fd2ae9a44ca753f6de2180da5b"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="卡务中心"
               icon="card"
-              url="pages/index/detail.html?id=6"
+              url="https://m.q.qq.com/a/s/95b265bc5720fadfed6790a638c93106"
               onClick={this.onListItemClick}
             />
           </List>
