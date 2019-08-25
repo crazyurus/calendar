@@ -90,7 +90,9 @@ class HomePage extends Component {
   }
 
   onListItemClick(url) {
-    window.location.assign('mqqapi://microapp/open?url=' + encodeURIComponent(url) + '&src_type=web');
+    let schema = 'mqqapi://microapp/open?url=' + encodeURIComponent(url) + '&src_type=web';
+    if (detect.isiWUTAndroid()) schema = 'newtab:' + schema;
+    window.location.assign(schema);
   }
 
   render() {
