@@ -52,7 +52,7 @@ class HomePage extends Component {
   }
 
   download() {
-    const fileName = '校历' + process.env.TERM + '.jpg';
+    const fileName = '校历.jpg';
 
     if (detect.isiWUTiPhone()) {
       tokenNative.alertTitles({
