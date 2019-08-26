@@ -14,10 +14,15 @@ export function isiWUTAndroid() {
   return window.token && navigator.userAgent.toLocaleLowerCase().includes('android');
 }
 
+export function isMiniProgram() {
+  return navigator.userAgent.includes('miniProgram');
+}
+
 export default {
   isWeChat,
   isiWUTiPhone,
   isiWUTAndroid,
-  isNewiWUTAndroid
+  isNewiWUTAndroid,
+  isMiniProgram
 };
 
