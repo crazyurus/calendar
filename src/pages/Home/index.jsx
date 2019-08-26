@@ -36,12 +36,6 @@ class HomePage extends Component {
         urls: [url]
       });
     }
-    else if (detect.isMQQ()) {
-      mqq.invoke('media', 'showPicture', {
-        imageIDs: [url],
-        index: 0
-      });
-    }
     else if (detect.isiWUTiPhone()) {
       tokenNative.previewImages({
         images: [url]
@@ -60,23 +54,7 @@ class HomePage extends Component {
   download() {
     const fileName = '校历-' + process.env.TERM + '.jpg';
 
-    if (detect.isMQQ()) {
-      mqq.invoke('ui', 'showDialog', {
-        title: '提示',
-        text: "确定要保存本学期校历到手机相册吗？",
-        needOkBtn: true,
-        needCancelBtn: true,
-        okBtnText: "保存",
-        cancelBtnText: "取消"
-      }, response => {
-        if (response.button === 0) {
-          mqq.invoke('media', 'saveImage', {
-            content: url
-          });
-        }
-      });
-    }
-    else if (detect.isiWUTiPhone()) {
+    if (detect.isiWUTiPhone()) {
       tokenNative.alertTitles({
         title: '提示',
         msg: '确定要保存本学期校历到手机相册吗？',
