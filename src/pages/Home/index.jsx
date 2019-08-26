@@ -8,7 +8,7 @@ import detect from '@/utils/detect';
 import imgCalendar from '@/assets/images/calendar.min.jpg';
 import styles from './index.less';
 
-const url = location.protocol + '//' + location.host + '/act/calendar/assets/images/calendar-' + process.env.TERM + '.jpg';
+const url = location.protocol + '//' + location.host + '/act/calendar/assets/images/calendar.jpg';
 
 @autobind
 class HomePage extends Component {
@@ -52,7 +52,7 @@ class HomePage extends Component {
   }
 
   download() {
-    const fileName = '校历-' + process.env.TERM + '.jpg';
+    const fileName = '校历.jpg';
 
     if (detect.isiWUTiPhone()) {
       tokenNative.alertTitles({

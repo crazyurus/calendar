@@ -16,7 +16,6 @@ function resolvePath(dir) {
 
 const env = process.env.NODE_ENV || 'development';
 const target = process.env.TARGET || 'web';
-const term = process.env.TERM;
 
 module.exports = {
   mode: env,
@@ -163,8 +162,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
-      'process.env.TARGET': JSON.stringify(target),
-      'process.env.TERM': '"' + term + '"'
+      'process.env.TARGET': JSON.stringify(target)
     }),
     ...(env === 'production' ? [
       new OptimizeCSSPlugin({
@@ -202,7 +200,7 @@ module.exports = {
     new CopyPlugin([
       {
         from: resolvePath('src/assets/images/calendar.jpg'),
-        to: resolvePath('dist/' + folderName + '/images/calendar-' + term + '.jpg')
+        to: resolvePath('dist/' + folderName + '/images/calendar.jpg')
       }
     ])
   ],

@@ -9,8 +9,8 @@
     "email": "xing.liao@itoken.team"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development TERM=test webpack-dev-server --config ./build/webpack.config.js",
-    "build": "cross-env NODE_ENV=production TERM=201820191 node ./build/build.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.js",
+    "build": "cross-env NODE_ENV=production node ./build/build.js"
   },
   "browserslist": [
     "Android >= 5",
