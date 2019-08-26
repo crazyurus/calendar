@@ -39,6 +39,7 @@ module.exports = {
   },
   devtool: env === 'production' ? 'none' : 'eval',
   devServer: {
+    host : '0.0.0.0',
     hot: true,
     open: true,
     compress: true,
