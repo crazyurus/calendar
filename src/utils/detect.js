@@ -27,6 +27,7 @@ export default {
   isiWUTiPhone,
   isiWUTAndroid,
   isNewiWUTAndroid,
-  isMiniProgram
+  isMiniProgram,
+  isMQQ
 };
 
