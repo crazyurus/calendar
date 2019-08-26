@@ -36,6 +36,12 @@ class HomePage extends Component {
         urls: [url]
       });
     }
+    else if (detect.isMiniProgram() && detect.isMQQ()) {
+      qq.previewImage({
+        current: url,
+        urls: [url]
+      });
+    }
     else if (detect.isiWUTiPhone()) {
       tokenNative.previewImages({
         images: [url]
@@ -86,7 +92,7 @@ class HomePage extends Component {
       evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
       $a.dispatchEvent(evObj);
     }
-    else this.$f7.dialog.alert('请长按上方图片保存到手机');
+    else this.$f7.dialog.alert('请点击上方图片查看原图，并长按保存到手机');
   }
 
   onListItemClick(url) {
@@ -106,6 +112,8 @@ class HomePage extends Component {
   }
 
   render() {
+    const isWeApp = detect.isWeChat() && detect.isMiniProgram();
+
     return (
       <Page name="home">
         <Block title="校历">
@@ -154,19 +162,21 @@ class HomePage extends Component {
           </List>
         </Block>
 
-        <Block
-          title="校歌"
-          extra={<a href="//m.music.163.com/m/applink/?scheme=orpheus%3A%2F%2Fsong%2F449577766%3Fthirdfrom%3Diwut" className="external">打开网易云音乐</a>}
-        >
-          {navigator.onLine ? <iframe
-            className={styles.iframe}
-            frameBorder="no"
-            border="0"
-            marginWidth="0"
-            marginHeight="0"
-            src="//music.163.com/outchain/player?type=2&id=449577766&auto=0&height=66"
-          >暂不支持</iframe> : <p>离线状态下无法加载校歌</p>}
-        </Block>
+        {!isWeApp && (
+          <Block
+            title="校歌"
+            extra={<a href="//m.music.163.com/m/applink/?scheme=orpheus%3A%2F%2Fsong%2F449577766%3Fthirdfrom%3Diwut" className="external">打开网易云音乐</a>}
+          >
+            {navigator.onLine ? <iframe
+              className={styles.iframe}
+              frameBorder="no"
+              border="0"
+              marginWidth="0"
+              marginHeight="0"
+              src="//music.163.com/outchain/player?type=2&id=449577766&auto=0&height=66"
+            >暂不支持</iframe> : <p>离线状态下无法加载校歌</p>}
+          </Block>
+        )}
       </Page>
     )
   }

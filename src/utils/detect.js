@@ -2,6 +2,10 @@ export function isWeChat() {
   return navigator.userAgent.includes('MicroMessenger');
 }
 
+export function isMQQ() {
+  return navigator.userAgent.includes('QQ');
+}
+
 export function isiWUTiPhone() {
   return !!window.tokenNative;
 }
