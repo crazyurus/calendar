@@ -36,10 +36,10 @@ class HomePage extends Component {
         urls: [url]
       });
     }
-    else if (detect.isMiniProgram() && detect.isMQQ()) {
-      qq.previewImage({
-        current: url,
-        urls: [url]
+    else if (detect.isMQQ()) {
+      mqq.invoke('media', 'showPicture', {
+        imageIDs: [url],
+        index: 0
       });
     }
     else if (detect.isiWUTiPhone()) {
@@ -60,7 +60,23 @@ class HomePage extends Component {
   download() {
     const fileName = '校历-' + process.env.TERM + '.jpg';
 
-    if (detect.isiWUTiPhone()) {
+    if (detect.isMQQ()) {
+      mqq.invoke('ui', 'showDialog', {
+        title: '提示',
+        text: "确定要保存本学期校历到手机相册吗？",
+        needOkBtn: true,
+        needCancelBtn: true,
+        okBtnText: "保存",
+        cancelBtnText: "取消"
+      }, response => {
+        if (response.button === 0) {
+          mqq.invoke('media', 'saveImage', {
+            content: url
+          });
+        }
+      });
+    }
+    else if (detect.isiWUTiPhone()) {
       tokenNative.alertTitles({
         title: '提示',
         msg: '确定要保存本学期校历到手机相册吗？',
@@ -144,19 +160,19 @@ class HomePage extends Component {
             <ListItem
               title="食堂"
               icon="tea"
-              url="https://m.q.qq.com/a/s/e2df34d359a407be9f105fa07c5daccb|/pages/inndex/list?id=7"
+              url="https://m.q.qq.com/a/s/e2df34d359a407be9f105fa07c5daccb|/pages/index/list?id=7"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="校医院"
               icon="hospital"
-              url="https://m.q.qq.com/a/s/2eda97fd2ae9a44ca753f6de2180da5b|/pages/inndex/detail?id=37"
+              url="https://m.q.qq.com/a/s/2eda97fd2ae9a44ca753f6de2180da5b|/pages/index/detail?id=37"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="卡务中心"
               icon="card"
-              url="https://m.q.qq.com/a/s/95b265bc5720fadfed6790a638c93106|/pages/inndex/detail?id=6"
+              url="https://m.q.qq.com/a/s/95b265bc5720fadfed6790a638c93106|/pages/index/detail?id=6"
               onClick={this.onListItemClick}
             />
           </List>
