@@ -2,27 +2,19 @@ import React from 'react';
 import { App, View } from 'framework7-react';
 import routes from '../../routes';
 
-export default class extends React.Component {
-  constructor(props) {
-    super(props);
+export default () => {
+  const f7Params = {
+    name: '校历',
+    theme: 'auto',
+    routes: routes,
+    dialog: {
+      buttonOk: '好'
+    }
+  };
 
-    this.state = {
-      f7Params: {
-        name: '校历',
-        theme: 'auto',
-        routes: routes,
-        dialog: {
-          buttonOk: '好'
-        }
-      }
-    };
-  }
-
-  render() {
-    return (
-      <App params={this.state.f7Params} >
-        <View main className="safe-areas" url="/" />
-      </App>
-    );
-  }
+  return (
+    <App params={f7Params}>
+      <View main className="safe-areas" url="/" />
+    </App>
+  );
 }
