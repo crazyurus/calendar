@@ -20,35 +20,17 @@ class HomePage extends Component {
       });
     }
 
-    if (!navigator.onLine) {
-      this.$f7.toast.create({
-        text: '当前处于离线状态，无法加载校歌',
-        closeButton: true,
-        closeButtonText: '好的'
-      }).open();
-    }
+    this.$f7.toast.create({
+      text: '服务即将下线，请通过“理工大指北”小程序查看校历',
+      closeButton: true,
+      closeButtonText: '详情'
+    }).on('close', () => {
+      location.assign('http://mp.weixin.qq.com/s?__biz=MjM5MjEwNDIwMA==&mid=502148909&idx=1&sn=7db79cec3547d272fd7d522ada7762c3&chksm=3eb1e54a09c66c5c0e04f14f17a91a9022b9c153542c65874c25939f609bcf125ced61be81d9#rd');
+    }).open();
   }
 
   preview() {
-    if (detect.isWeChat()) {
-      wx.previewImage({
-        current: url,
-        urls: [url]
-      });
-    }
-    else if (detect.isiWUTiPhone()) {
-      tokenNative.previewImages({
-        images: [url]
-      });
-    }
-    else {
-      this.$f7.photoBrowser.create({
-        photos: [url],
-        navbar: false,
-        toolbar: false,
-        theme: 'dark'
-      }).open();
-    }
+    this.download();
   }
 
   download() {
@@ -97,12 +79,11 @@ class HomePage extends Component {
             <Preloader size={30} />
             <img src={imgCalendar} onClick={this.preview} alt="校历" />
           </div>
-          <Button fill onClick={this.download}>保存到手机</Button>
+          <Button fill onClick={this.download}>打开小程序查看原图</Button>
         </Block>
 
         <Block
           title="理工指北"
-          extra={<a className="external" onClick={() => this.onListItemClick('https://m.q.qq.com/a/s/4cb1870c36fd6f9e751cfd976c00b84e')}>打开小程序</a>}
         >
           <List>
             <ListItem
