@@ -52,41 +52,23 @@ class HomePage extends Component {
   }
 
   download() {
-    const fileName = '校历.jpg';
-
-    if (detect.isiWUTiPhone()) {
-      tokenNative.alertTitles({
-        title: '提示',
-        msg: '确定要保存本学期校历到手机相册吗？',
-        actionTitles: ['保存'],
-        feedBack(index) {
-          if (index === 0) {
-            tokenNative.saveImage({
-              url,
-              success() {
-                tokenNative.showSuccessHUD('保存成功');
-              },
-              failure() {
-                token.showNativeToast('保存失败，未开启相册访问权限', 3);
-              }
-            });
-          }
-        }
-      });
-    }
-    else if (detect.isNewiWUTAndroid()) {
-      token.shareImageFromUrl(fileName, url);
-    }
-    else if (detect.isiWUTAndroid()) {
-      const $a = document.createElement('a');
-      $a.setAttribute('href', 'newtab:' + url);
-      $a.setAttribute('download', fileName);
-
-      const evObj = document.createEvent('MouseEvents');
-      evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
-      $a.dispatchEvent(evObj);
-    }
-    else this.$f7.dialog.alert('请点击上方图片查看原图，并长按保存到手机');
+   this.$f7.dialog.create({
+     title: null,
+     text: '即将打开“理工大指北”小程序',
+     buttons: [
+       {
+         text: '取消',
+         color: 'black',
+       },
+       {
+         text: '允许',
+         bold: true,
+         onClick: () => {
+           this.onListItemClick('https://m.q.qq.com/a/s/52014b05ee91e29ade22b4a28e309fb3|/pages/common/calendar');
+         }
+       }
+     ],
+   }).open();
   }
 
   onListItemClick(url) {
