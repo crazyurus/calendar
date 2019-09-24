@@ -21,7 +21,7 @@ class HomePage extends Component {
     }
 
     this.$f7.toast.create({
-      text: '服务即将下线，请通过“理工大指北”小程序查看校历',
+      text: '掌上理工大服务即将下线，请通过“理工大指北”小程序查看校历',
       closeButton: true,
       closeButtonText: '详情'
     }).on('close', () => {
@@ -34,23 +34,7 @@ class HomePage extends Component {
   }
 
   download() {
-   this.$f7.dialog.create({
-     title: null,
-     text: '即将打开“理工大指北”小程序',
-     buttons: [
-       {
-         text: '取消',
-         color: 'black',
-       },
-       {
-         text: '允许',
-         bold: true,
-         onClick: () => {
-           this.onListItemClick('https://m.q.qq.com/a/s/52014b05ee91e29ade22b4a28e309fb3|/pages/common/calendar');
-         }
-       }
-     ],
-   }).open();
+    this.onListItemClick('https://m.q.qq.com/a/s/cadec3a0e963d9b06c486dc9be3a9a9e|/pages/biz/calendar/index');
   }
 
   onListItemClick(url) {
@@ -63,9 +47,25 @@ class HomePage extends Component {
         url: urlArray.length === 1 ? '/pages/index/index' : urlArray[1]
       });
     } else {
-      let schema = 'mqqapi://microapp/open?url=' + encodeURIComponent(urlArray[0]) + '&src_type=web';
-      if (detect.isiWUTAndroid()) schema = 'newtab:' + schema;
-      window.location.assign(schema);
+      this.$f7.dialog.create({
+        title: null,
+        text: '即将打开“理工大指北”小程序',
+        buttons: [
+          {
+            text: '取消',
+            color: 'black',
+          },
+          {
+            text: '允许',
+            bold: true,
+            onClick: () => {
+              let schema = 'mqqapi://microapp/open?url=' + encodeURIComponent(urlArray[0]) + '&src_type=web';
+              if (detect.isiWUTAndroid()) schema = 'newtab:' + schema;
+              window.location.assign(schema);
+            }
+          }
+        ],
+      }).open();
     }
   }
 
