@@ -101,19 +101,19 @@ class HomePage extends Component {
             <ListItem
               title="食堂"
               icon="tea"
-              url="https://m.q.qq.com/a/s/e2df34d359a407be9f105fa07c5daccb|/pages/index/list?id=7"
+              url="https://m.q.qq.com/a/s/d2e7c6251a5b9e015528cb78de386382|/pages/index/list?id=7"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="校医院"
               icon="hospital"
-              url="https://m.q.qq.com/a/s/2eda97fd2ae9a44ca753f6de2180da5b|/pages/index/detail?id=37"
+              url="https://m.q.qq.com/a/s/f0f41c6319485590cfb80d955b7d18c9|/pages/biz/article/detail?id=37"
               onClick={this.onListItemClick}
             />
             <ListItem
               title="卡务中心"
               icon="card"
-              url="https://m.q.qq.com/a/s/95b265bc5720fadfed6790a638c93106|/pages/index/detail?id=6"
+              url="https://m.q.qq.com/a/s/0a25cd954d25f3c06eada093f6ef35f8|/pages/biz/article/detail?id=6"
               onClick={this.onListItemClick}
             />
           </List>
