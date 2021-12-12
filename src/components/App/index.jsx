@@ -8,7 +8,7 @@ export default () => {
     theme: 'auto',
     routes: routes,
     dialog: {
-      buttonOk: '好'
+      buttonOk: '确定'
     }
   };
 
