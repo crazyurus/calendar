@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SriPlugin = require('webpack-subresource-integrity');
-const CopyPlugin = require('copy-webpack-plugin');
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -24,7 +22,7 @@ module.exports = {
   ],
   output: {
     path: resolvePath('dist'),
-    filename: folderName + '/js/calendar.js',
+    filename: folderName + '/js/[name].[chunkhash:8].js',
     publicPath: '',
     hotUpdateChunkFilename: 'hot/hot-update.js',
     hotUpdateMainFilename: 'hot/hot-update.json',
@@ -81,26 +79,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.styl(us)?$/,
-        use: [
-          (env === 'development' ? 'style-loader' : {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '../'
-            }
-          }),
-          'css-loader',
-          'postcss-loader',
-          'stylus-loader',
-        ],
-      },
-      {
         test: /\.less$/,
         use: [
           (env === 'development' ? 'style-loader' : {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../'
+              publicPath: '../',
             }
           }),
           {
@@ -117,43 +101,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(sa|sc)ss$/,
-        use: [
-          (env === 'development' ? 'style-loader' : {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '../'
-            }
-          }),
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
-      },
-      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: folderName + '/images/[name].[ext]',
-
-        },
-      },
-      {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac|m4a)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: folderName + '/media/[name].[ext]',
-
-        },
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: folderName + '/fonts/[name].[ext]',
+          name: folderName + '/images/[name].[hash:8].[ext]',
         },
       },
     ],
@@ -167,18 +119,17 @@ module.exports = {
       new OptimizeCSSPlugin({
         cssProcessorOptions: {
           safe: true,
-          map: { inline: false },
+          map: false,
         },
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
     ] : [
-      // Development only plugins
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NamedModulesPlugin(),
     ]),
     new SriPlugin({
       hashFuncNames: ['sha256', 'sha512'],
-      enabled: false,
+      enabled: env === 'production',
     }),
     new HtmlWebpackPlugin({
       filename: './index.html',
@@ -194,13 +145,7 @@ module.exports = {
       } : false,
     }),
     new MiniCssExtractPlugin({
-      filename: folderName + '/css/calendar.css',
+      filename: folderName + '/css/[name].[chunkhash:8].css',
     }),
-    new CopyPlugin([
-      {
-        from: resolvePath('src/assets/images/calendar.jpg'),
-        to: resolvePath('dist/' + folderName + '/images/calendar.jpg')
-      }
-    ])
   ],
 };
