@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { autobind } from 'core-decorators';
-import { Page, Button, Preloader } from 'framework7-react';
+import { f7, Page, Button, Preloader } from 'framework7-react';
 import Block from '@/components/Block';
 import List from '@/components/List';
 import ListItem from '@/components/List/item';
 import imageCalendar from '@/assets/images/calendar.jpg';
-import styles from './index.less';
+import styles from './index.module.less';
 
 @autobind
 class HomePage extends Component {
   preview() {
-    this.$f7.photoBrowser.create({
+    f7.photoBrowser.create({
       photos: [imageCalendar],
       navbar: false,
       toolbar: false,
@@ -56,7 +56,7 @@ class HomePage extends Component {
       <Page name="home">
         <Block title="校历">
           <div className={styles.calendar}>
-            <Preloader size={30} />
+            <Preloader size={30} color="white" />
             <img src={imageCalendar} onClick={this.preview} alt="校历" />
           </div>
           <Button fill onClick={this.download}>保存原图到相册</Button>
@@ -120,7 +120,7 @@ class HomePage extends Component {
           >暂不支持</iframe> : <p>离线状态下无法加载校歌</p>}
         </Block>
       </Page>
-    )
+    );
   }
 }
 

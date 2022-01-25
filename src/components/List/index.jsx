@@ -1,5 +1,7 @@
 import React from 'react';
 
-export default props => {
+function List(props) {
   return <section>{props.children}</section>;
 };
+
+export default List;

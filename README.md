@@ -5,8 +5,6 @@
 
 掌上理工大校历模块
 
-https://crazyurus.github.io/calendar/
-
 https://whut-calendar.netlify.app/
 
 ## 如何更新校历
@@ -15,5 +13,5 @@ https://whut-calendar.netlify.app/
 
 ## 项目脚本
 
-* `npm run dev` - 本地运行项目
+* `npm run start` - 本地运行项目
 * `npm run build` - 打包项目
