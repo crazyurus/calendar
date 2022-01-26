@@ -9,10 +9,11 @@ module.exports = {
   plugins: [
     { plugin: CracoLessPlugin },
   ],
-  babel: {
-    plugins: [
-      ['@babel/plugin-proposal-decorators', { legacy: true }],
-    ],
+  style: {
+    modules: {
+      localIdentName: '[local]--[hash:base64:5]',
+      exportLocalsConvention: 'camelCase',
+    },
   },
   webpack: {
     alias: {
