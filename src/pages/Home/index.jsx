@@ -53,7 +53,7 @@ function HomePage() {
     <Page name="home">
       <Block title="校历">
         <div className={styles.calendar}>
-          <Preloader size={30} color="white" />
+          <Preloader size={30} />
           <img src={imageCalendar} onClick={preview} alt="校历" />
         </div>
         <Button fill onClick={download}>保存原图到相册</Button>

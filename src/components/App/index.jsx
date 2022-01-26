@@ -8,6 +8,7 @@ function Main() {
     name: '校历',
     theme: 'auto',
     routes: routes,
+    autoDarkTheme: true,
     dialog: {
       buttonOk: '确定'
     }
