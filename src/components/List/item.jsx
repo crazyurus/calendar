@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import className from 'classnames';
-import styles from './item.module.less';
+import styles from './item.less';
 
 export default memo(props => {
   const icon = require(`@/assets/icons/${props.icon}.png`);

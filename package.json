@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^6.4.3",
+    "craco-css-modules": "^1.0.0",
     "craco-less": "^2.0.0",
     "react-scripts": "^5.0.0",
     "webpack-subresource-integrity": "^5.1.0"

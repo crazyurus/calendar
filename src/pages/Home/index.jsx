@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { f7, Page, Button, Preloader } from 'framework7-react';
 import Block from '@/components/Block';
 import List from '@/components/List';
 import ListItem from '@/components/List/item';
 import imageCalendar from '@/assets/images/calendar.jpg';
-import styles from './index.module.less';
+import styles from './index.less';
 
 function preview() {
   f7.photoBrowser.create({
@@ -108,6 +109,7 @@ function HomePage() {
         extra={<a href="orpheus://song/449577766" className="external">打开网易云音乐</a>}
       >
         {navigator.onLine ? <iframe
+          title="music"
           className={styles.iframe}
           frameBorder="no"
           border="0"

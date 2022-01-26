@@ -1,13 +1,16 @@
 const path = require('path');
 const CracoLessPlugin = require('craco-less');
+const CracoCSSModules = require('craco-css-modules');
 const { SubresourceIntegrityPlugin } = require('webpack-subresource-integrity');
 const isProduction = process.env.NODE_ENV === 'production';
 
 process.env.BUILD_PATH = path.resolve('./dist');
+process.env.GENERATE_SOURCEMAP = !isProduction.toString();
 
 module.exports = {
   plugins: [
     { plugin: CracoLessPlugin },
+    { plugin: CracoCSSModules },
   ],
   style: {
     modules: {
@@ -26,16 +29,12 @@ module.exports = {
           enabled: isProduction,
         }),
       ],
+      remove: ['WebpackManifestPlugin'],
     },
     configure(options) {
-      options.output.path = process.env.BUILD_PATH;
       options.output.crossOriginLoading = 'anonymous';
-      options.devtool = isProduction ? false : 'source-map';
 
       return options;
     },
-  },
-  eslint: {
-    enable: false,
   },
 };

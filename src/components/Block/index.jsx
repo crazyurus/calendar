@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import styles from './index.module.less';
+import styles from './index.less';
 
 export default memo(props => {
   return (
