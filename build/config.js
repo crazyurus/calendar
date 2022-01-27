@@ -1,8 +1,10 @@
 const path = require('path');
 const CracoLessPlugin = require('craco-less');
 const CracoCSSModules = require('craco-css-modules');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { SubresourceIntegrityPlugin } = require('webpack-subresource-integrity');
 const isProduction = process.env.NODE_ENV === 'production';
+const isAnalysis = process.env.ANALYSE === 'TRUE';
 
 process.env.BUILD_PATH = path.resolve('./dist');
 process.env.GENERATE_SOURCEMAP = !isProduction.toString();
@@ -28,7 +30,7 @@ module.exports = {
           hashFuncNames: ['sha256', 'sha512'],
           enabled: isProduction,
         }),
-      ],
+      ].concat(isAnalysis ? new BundleAnalyzerPlugin() : []),
       remove: ['WebpackManifestPlugin'],
     },
     configure(options) {
