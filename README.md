@@ -7,6 +7,8 @@
 
 https://whut-calendar.netlify.app/
 
+`React` + `Craco` + `Framework7`
+
 ## 如何更新校历
 
 请替换 `src/assets/images` 下 `calendar.jpg` 文件并提交代码
@@ -15,3 +17,4 @@ https://whut-calendar.netlify.app/
 
 * `npm run start` - 本地运行项目
 * `npm run build` - 打包项目
+* `npm run analyse` - 项目构建分析
