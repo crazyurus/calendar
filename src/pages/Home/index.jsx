@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { f7, Page, Button, Preloader } from 'framework7-react';
+import { saveAs } from 'file-saver';
 import Block from '@/components/Block';
 import List from '@/components/List';
 import ListItem from '@/components/List/item';
@@ -17,12 +18,7 @@ function preview() {
 }
 
 function download() {
-  const $a = document.createElement('a');
-  $a.setAttribute('href', imageCalendar);
-  $a.setAttribute('download', '校历.jpg');
-  const evObj = document.createEvent('MouseEvents');
-  evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
-  $a.dispatchEvent(evObj);
+  saveAs(imageCalendar, '校历.jpg');
 }
 
 function openMiniProgram() {
