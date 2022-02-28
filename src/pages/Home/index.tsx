@@ -8,7 +8,7 @@ import ListItem from '@/components/List/item';
 import imageCalendar from '@/assets/images/calendar.jpg';
 import styles from './index.less';
 
-function preview() {
+function preview(): void {
   f7.photoBrowser.create({
     photos: [imageCalendar],
     navbar: false,
@@ -17,13 +17,13 @@ function preview() {
   }).open();
 }
 
-function download() {
+function download(): void {
   saveAs(imageCalendar, '校历.jpg');
 }
 
-function openMiniProgram() {
+function openMiniProgram(): void {
   f7.dialog.create({
-    title: null,
+    title: undefined,
     text: '即将打开“理工大指北”小程序',
     buttons: [
       {
@@ -41,7 +41,7 @@ function openMiniProgram() {
   }).open();
 }
 
-function onListItemClick(url) {
+function onListItemClick(url: string): void {
   window.open(url);
 }
 
@@ -108,9 +108,8 @@ function HomePage() {
           title="music"
           className={styles.iframe}
           frameBorder="no"
-          border="0"
-          marginWidth="0"
-          marginHeight="0"
+          marginWidth={0}
+          marginHeight={0}
           src="//music.163.com/outchain/player?type=2&id=449577766&auto=0&height=66"
         >暂不支持</iframe> : <p>离线状态下无法加载校歌</p>}
       </Block>
