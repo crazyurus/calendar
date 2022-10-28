@@ -6,7 +6,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const { SubresourceIntegrityPlugin } = require('webpack-subresource-integrity');
 const isProduction = process.env.NODE_ENV === 'production';
-const isAnalysis = process.env.ANALYSE === 'TRUE';
+const isAnalysis = process.env.ANALYZE === 'TRUE';
 
 process.env.BUILD_PATH = path.resolve('./dist');
 process.env.GENERATE_SOURCEMAP = !isProduction.toString();
@@ -38,6 +38,11 @@ module.exports = {
     },
     configure(options) {
       options.output.crossOriginLoading = 'anonymous';
+      options.devtool = isProduction ? false : 'eval';
+      options.watchOptions = {
+        ignored: /node_modules/
+      };
+      options.resolve.extensions = ['.js', '.ts', '.tsx'];
 
       return options;
     },
