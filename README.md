@@ -1,10 +1,8 @@
 # 校历
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/10a40894-9365-4ab4-bdf3-ab09e1fba3c5/deploy-status)](https://app.netlify.com/sites/whut-calendar/deploys)
-
 掌上理工大校历模块
 
-https://whut-calendar.netlify.app/
+https://whut-calendar.vercel.app/
 
 `React` + `Craco` + `Framework7`
 
