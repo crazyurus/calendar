@@ -1,7 +1,6 @@
 {
   "name": "calendar",
   "version": "2.0.0",
-  "private": true,
   "description": "掌上理工大校历模块",
   "repository": "https://github.com/crazyurus/calendar.git",
   "author": {
@@ -9,18 +8,18 @@
     "email": "crazyurus@vip.qq.com"
   },
   "dependencies": {
-    "@types/file-saver": "^2.0.5",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
     "classnames": "^2.3.1",
     "file-saver": "^2.0.5",
-    "framework7": "^6.3.15",
-    "framework7-react": "^6.3.15",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "framework7": "^7.0.8",
+    "framework7-react": "^7.0.8",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@craco/craco": "^6.4.3",
+    "@types/file-saver": "^2.0.5",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
     "craco-css-modules": "^1.0.1",
     "craco-esbuild": "^0.5.0",
     "craco-less": "^2.0.0",
@@ -53,5 +52,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "packageManager": "pnpm@7.14.0"
 }
