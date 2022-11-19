@@ -8,10 +8,10 @@ https://whut-calendar.vercel.app/
 
 ## 如何更新校历
 
-请替换 `src/assets/images` 下 `calendar.jpg` 文件并提交代码
+替换 `src/assets/images` 下 `calendar.jpg` 文件
 
 ## 项目脚本
 
-* `npm run start` - 本地运行项目
-* `npm run build` - 打包项目
-* `npm run analyse` - 项目构建分析
+* `pnpm run start` - 本地运行项目
+* `pnpm run build` - 打包项目
+* `pnpm run analyze` - 项目构建分析
