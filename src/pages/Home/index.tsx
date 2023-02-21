@@ -5,8 +5,9 @@ import { saveAs } from 'file-saver';
 import Block from '@/components/Block';
 import List from '@/components/List';
 import ListItem from '@/components/List/item';
-import imageCalendar from '@/assets/images/calendar.jpg';
 import styles from './index.less';
+
+const imageCalendar = 'https://wx.whut.edu.cn/img/pic.0465e666.jpg';
 
 function preview(): void {
   f7.photoBrowser.create({
