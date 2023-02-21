@@ -8,37 +8,32 @@
     "email": "crazyurus@vip.qq.com"
   },
   "dependencies": {
-    "classnames": "^2.3.1",
+    "classnames": "^2.3.2",
     "file-saver": "^2.0.5",
-    "framework7": "^7.0.8",
-    "framework7-react": "^7.0.8",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "framework7": "^7.1.5",
+    "framework7-react": "^7.1.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@craco/craco": "^7.0.0",
     "@types/file-saver": "^2.0.5",
-    "@types/react": "^18.0.8",
-    "@types/react-dom": "^18.0.3",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
     "craco-css-modules": "^1.0.3",
-    "craco-esbuild": "^0.5.0",
+    "craco-esbuild": "^0.5.1",
     "craco-less": "^2.0.0",
     "cross-env": "^7.0.3",
     "react-scripts": "^5.0.0",
     "speed-measure-webpack-plugin": "^1.5.0",
-    "typescript": "^4.9.0",
-    "webpack-bundle-analyzer": "^4.5.0",
+    "typescript": "^4.9.5",
+    "webpack-bundle-analyzer": "^4.8.0",
     "webpack-subresource-integrity": "^5.1.0"
   },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "analyze": "cross-env ANALYZE=TRUE craco build"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
   },
   "cracoConfig": "./build/config.js",
   "browserslist": {

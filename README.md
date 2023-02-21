@@ -6,10 +6,6 @@ https://whut-calendar.vercel.app/
 
 `React` + `Craco` + `Framework7`
 
-## 如何更新校历
-
-替换 `src/assets/images` 下 `calendar.jpg` 文件
-
 ## 项目脚本
 
 * `pnpm run start` - 本地运行项目

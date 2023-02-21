@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { f7, Page, Button, Preloader } from 'framework7-react';
 import { saveAs } from 'file-saver';
