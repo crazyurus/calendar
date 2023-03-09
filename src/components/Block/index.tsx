@@ -1,13 +1,13 @@
-import React, { memo } from 'react';
+import React, { memo, type PropsWithChildren } from 'react';
 import styles from './index.less';
 
 interface BlockProps {
   title: string;
-  extra?: React.ReactNode;
+  extra?: JSX.Element;
 }
 
-function Block(props: React.PropsWithChildren<BlockProps>) {
- return (
+function Block(props: PropsWithChildren<BlockProps>): JSX.Element {
+  return (
     <div className={styles.block}>
       <div className={styles.title}>
         <span>{props.title}</span>

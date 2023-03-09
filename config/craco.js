@@ -1,3 +1,4 @@
+/* eslint-env node */
 const path = require('path');
 const CracoLessPlugin = require('craco-less');
 const CracoCSSModulesPlugin = require('craco-css-modules');
@@ -13,9 +14,15 @@ process.env.GENERATE_SOURCEMAP = !isProduction.toString();
 
 module.exports = {
   plugins: [
-    { plugin: CracoLessPlugin },
-    { plugin: CracoCSSModulesPlugin },
-    { plugin: CracoESBuildPlugin },
+    {
+      plugin: CracoLessPlugin,
+    },
+    {
+      plugin: CracoCSSModulesPlugin,
+    },
+    {
+      plugin: CracoESBuildPlugin,
+    },
   ],
   style: {
     modules: {
@@ -33,14 +40,16 @@ module.exports = {
           hashFuncNames: ['sha256', 'sha512'],
           enabled: isProduction,
         }),
-      ].concat(isAnalysis ? [new BundleAnalyzerPlugin(), new SpeedMeasurePlugin()] : []),
-      remove: ['WebpackManifestPlugin'],
+      ].concat(
+        isAnalysis ? [new BundleAnalyzerPlugin(), new SpeedMeasurePlugin()] : []
+      ),
+      remove: ['WebpackManifestPlugin', 'ESLintWebpackPlugin'],
     },
     configure(options) {
       options.output.crossOriginLoading = 'anonymous';
-      options.devtool = isProduction ? false : 'eval';
+      options.devtool = isProduction ? 'hidden-source-map' : 'cheap-module-source-map';
       options.watchOptions = {
-        ignored: /node_modules/
+        ignored: /node_modules/,
       };
       options.resolve.extensions = ['.js', '.ts', '.tsx'];
 

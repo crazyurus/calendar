@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, type PropsWithChildren } from 'react';
 import className from 'classnames';
 import styles from './item.less';
 
@@ -10,7 +10,8 @@ interface ListItemProps {
   onClick(url: string): void;
 }
 
-function ListItem(props: React.PropsWithChildren<ListItemProps>) {
+function ListItem(props: PropsWithChildren<ListItemProps>): JSX.Element {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const icon = require(`@/assets/icons/${props.icon}.png`);
 
   return (
