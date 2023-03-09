@@ -2,9 +2,8 @@ import React from 'react';
 import { f7, Page, Button, Preloader } from 'framework7-react';
 import { saveAs } from 'file-saver';
 import { Block, List } from '@/components';
+import imageCalendar from '@/assets/images/calendar.jpg';
 import styles from './index.less';
-
-const imageCalendar = 'https://wx.whut.edu.cn/img/pic.0465e666.jpg';
 
 function preview(): void {
   f7.photoBrowser
