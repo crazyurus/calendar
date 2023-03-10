@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Framework7 from 'framework7/lite/bundle';
 import Framework7React from 'framework7-react';
 import App from './App';
-import 'framework7/less';
+import 'framework7/less/bundle';
 import './global.less';
 
 Framework7.use(Framework7React);
