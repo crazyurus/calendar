@@ -9,7 +9,7 @@ specifiers:
   '@types/react': ^18.0.28
   '@types/react-dom': ^18.0.11
   classnames: ^2.3.2
-  craco-css-modules: ^1.0.4
+  craco-css-modules: ^1.0.5
   craco-esbuild: ^0.5.1
   craco-less: ^2.0.0
   cross-env: ^7.0.3
@@ -49,7 +49,7 @@ devDependencies:
   '@types/file-saver': 2.0.5
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
-  craco-css-modules: 1.0.4_5ial7dl5a2d4aztokzwa5qionq
+  craco-css-modules: 1.0.5_5ial7dl5a2d4aztokzwa5qionq
   craco-esbuild: 0.5.1_5ial7dl5a2d4aztokzwa5qionq
   craco-less: 2.0.0_5ial7dl5a2d4aztokzwa5qionq
   cross-env: 7.0.3
@@ -4409,11 +4409,11 @@ packages:
       path-type: 4.0.0
     dev: true
 
-  /craco-css-modules/1.0.4_5ial7dl5a2d4aztokzwa5qionq:
-    resolution: {integrity: sha512-w7tqMCXUcW9btJqUuD/bXtuafgIk+tJEv/IhppfTFx02WskjWfKZ/TRvH26safjUSahhQScjF8QBTdj9Fhc5Yg==}
+  /craco-css-modules/1.0.5_5ial7dl5a2d4aztokzwa5qionq:
+    resolution: {integrity: sha512-Dt7w9GEXmY6lUSxh7g4ft+11NyOY3ZgwUZu0Aq9imTrFRKa65rsu00SA2rZ/UDPzCfagwvcY7VdHMOA2BKDoBw==}
     peerDependencies:
-      '@craco/craco': ^7.0.0
-      react-scripts: ^5.0.0
+      '@craco/craco': '>=6.0.0'
+      react-scripts: '>=4.0.0'
     dependencies:
       '@craco/craco': 7.0.0_rkrdje3uomptclkbx6bkzlgy7u
       auto-css-modules-webpack-plugin: 1.1.1
